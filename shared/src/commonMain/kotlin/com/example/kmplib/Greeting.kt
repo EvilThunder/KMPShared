@@ -11,6 +11,10 @@ class Greeting {
         return "Hello, ${platform.name}!"
     }
 
+    fun hello(): String {
+        return "${getHello()}!"
+    }
+
     fun invokeClick() {
         onClickListener?.invoke(20)
     }
