@@ -3,6 +3,11 @@ package com.example.kmplib
 class Greeting {
     companion object {
         var onClickListener: ((Int) -> Unit)? = null
+        var onClickInterface: OnClickInterface? = null
+    }
+
+    interface OnClickInterface {
+        fun onClick(value: Int)
     }
 
     private val platform: Platform = getPlatform()
@@ -21,5 +26,13 @@ class Greeting {
 
     fun setOnClick(onClick: (Int) -> Unit) {
         onClickListener = onClick
+    }
+
+    fun invokeClickInterface() {
+        onClickInterface?.onClick(20)
+    }
+
+    fun setOnclickInterface(onClick: OnClickInterface) {
+        onClickInterface = onClick
     }
 }
